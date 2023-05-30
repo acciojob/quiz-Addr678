@@ -8,6 +8,28 @@
 
 <body>
 	<!-- the entire body must be written by student -->
+	<div id="quiz" class="quiz-container">
+        <h2 id="question"></h2>
+        <div>
+            <input type="radio" id="a" name="option">
+            <label for="a" id="a_text"></label>
+        </div>
+        <div>
+            <input type="radio" id="b" name="option">
+            <label for="b" id="b_text"></label>
+        </div>
+        <div>
+            <input type="radio" id="c" name="option">
+            <label for="c" id="c_text"></label>
+        </div>
+        <div>
+            <input type="radio" id="d" name="option">
+            <label for="d" id="d_text"></label>
+        </div>
+        <button id="submit" onclick="submitAnswer()">Submit</button>
+        <p id="result"></p>
+        <button id="reload" onclick="location.reload()">Reload Quiz</button>
+    </div>
     <script type="text/javascript" src="./script.js">
 </script>
 

@@ -1,1 +1,30 @@
 /*  your css code here. If applicable */
+.quiz-container {
+            max-width: 600px;
+            margin: 10px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f8fffe;
+            font-weight: bold;
+        }
+
+        #question {
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        #submit {
+            margin-top: 10px;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #reload {
+            margin-top: 10px;
+        }
