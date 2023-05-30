@@ -1,5 +1,5 @@
 //your JS code here. If required.
- const questions = [
+var questions = [
             {
                 question: "Which language runs in a web browser?",
                 a: "Java",
@@ -21,7 +21,7 @@
                 a: "Hypertext Markup Language",
                 b: "Hypertext Markdown Language",
                 c: "Hyperloop Machine Language",
-                d: "Helicopters Terminals Motorboats Lamborghinis",
+                d: "Helicopters Terminals Motorboats Lamborginis",
                 correct: "a",
             },
             {
@@ -34,61 +34,38 @@
             }
         ];
 
-        let currentQuestion = 0;
-        let score = 0;
+        var currentQuestion = 0;
+        var score = 0;
 
         function loadQuestion() {
-            const quiz = document.getElementById("quiz");
-            const question = document.getElementById("question");
-            const a = document.getElementById("a_text");
-            const b = document.getElementById("b_text");
-            const c = document.getElementById("c_text");
-            const d = document.getElementById("d_text");
-
-            const currentQ = questions[currentQuestion];
-            question.textContent = currentQ.question;
-            a.textContent = currentQ.a;
-            b.textContent = currentQ.b;
-            c.textContent = currentQ.c;
-            d.textContent = currentQ.d;
+            var question = questions[currentQuestion];
+            document.getElementById("question").textContent = question.question;
+            document.getElementById("a_text").textContent = question.a;
+            document.getElementById("b_text").textContent = question.b;
+            document.getElementById("c_text").textContent = question.c;
+            document.getElementById("d_text").textContent = question.d;
         }
 
         function submitAnswer() {
-            const options = document.getElementsByName("option");
-            let selectedOption = null;
-
-            for (let i = 0; i < options.length; i++) {
-                if (options[i].checked) {
-                    selectedOption = options[i].id;
-                    break;
+            var selectedOption = document.querySelector("input[name='option']:checked");
+            if (selectedOption) {
+                var selectedAnswer = selectedOption.value;
+                if (selectedAnswer === questions[currentQuestion].correct) {
+                    score++;
                 }
-            }
-
-            if (selectedOption === null) {
-                alert("Please select an option!");
-                return;
-            }
-
-            if (selectedOption === questions[currentQuestion].correct) {
-                score++;
-            }
-
-            currentQuestion++;
-            if (currentQuestion < questions.length) {
-                loadQuestion();
-            } else {
-                showResult();
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    showResult();
+                }
             }
         }
 
         function showResult() {
-            const quiz = document.getElementById("quiz");
-            const result = document.getElementById("result");
-            const reloadBtn = document.getElementById("reload");
-
-            quiz.style.display = "none";
-            result.textContent = `You scored ${score} out of ${questions.length}!`;
-            reloadBtn.style.display = "block";
+            var result = document.getElementById("result");
+            result.textContent = "Your Score: " + score + " out of " + questions.length;
+            result.style.display = "block";
+            document.getElementById("quiz").style.display = "none";
         }
-
-        loadQuestion();
+   
